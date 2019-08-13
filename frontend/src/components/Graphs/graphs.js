@@ -23,9 +23,14 @@ class Graphs extends Component {
   }
 
   componentDidMount() {
-    console.log(this.state.meals);
     this.renderGraph();
     setInterval(this.renderGraph, 1000);
+  }
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.meals !== this.props.meals) {
+      this.setState({meals: this.props.meals});
+    }
   }
 
   changeUserInput(target) {
