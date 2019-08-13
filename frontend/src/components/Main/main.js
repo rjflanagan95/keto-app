@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import axios from "axios";
 import "./main.css"
 
 import Logger from "../Logger/logger";
@@ -14,12 +15,34 @@ class Main extends Component {
       }
   }
 
+  componentDidMount() {
+    let currentComponent = this;
+    axios.get("http://localhost:8000/api/meals/")
+    .then(function(res) {
+      console.log(res.data);
+      currentComponent.setState({
+        meals: res.data
+      });
+    })
+    .catch(err => console.log(err));
+  }
+
   logMeal = (data) => {
-    let newMeals = this.state.meals;
-    newMeals.push(data);
-    this.setState({
-      meals: newMeals
-    });
+    // let newMeal = {
+    //   title: data.food,
+    //   meal_type: data.mealType,
+    //   meal_date: data.mealDate,
+    //   calories: data.calories,
+    //   protein: data.protein,
+    //   fat: data.fat,
+    //   carbs: data.carbs
+    // }
+    // let allMeals = this.state.meals;
+    // allMeals.push(newMeal);
+
+    axios.post("http://localhost:8000/api/meals/", data)
+    .then(res => console.log(res.data))
+    .catch(err => console.log(err));
   }
 
   render() {

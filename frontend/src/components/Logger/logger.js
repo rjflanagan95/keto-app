@@ -27,10 +27,19 @@ class Logger extends Component {
   }
 
   submitMeal() {
+    // let newMeal = {
+    //   mealDate: this.state.mealDate,
+    //   food: this.state.food,
+    //   mealType: this.state.mealType,
+    //   calories: this.state.calories,
+    //   protein: this.state.protein,
+    //   fat: this.state.fat,
+    //   carbs: this.state.carbs
+    // }
     let newMeal = {
-      mealDate: this.state.mealDate,
-      food: this.state.food,
-      mealType: this.state.mealType,
+      title: this.state.food,
+      meal_type: this.state.mealType,
+      meal_date: this.state.mealDate,
       calories: this.state.calories,
       protein: this.state.protein,
       fat: this.state.fat,
@@ -46,7 +55,7 @@ class Logger extends Component {
       protein: 0,
       fat: 0,
       carbs: 0
-    })
+    });
   }
 
   render() {
