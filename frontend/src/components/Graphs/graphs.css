@@ -13,6 +13,11 @@
     padding: 5px;
 }
 
+#food-list {
+    height: 400px;
+    overflow: scroll;
+}
+
 .food-item {
     background: #F4FFFD;
     border-radius: 8px;

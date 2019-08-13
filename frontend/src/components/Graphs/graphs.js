@@ -97,20 +97,22 @@ class Graphs extends Component {
                   <div>Calories from Carbs: {this.state.carbCalories}</div>
                 </div>
               </div>
-              <div id="food-list" className="graph-card">
-                <div className="title">Today's Meals</div>
-                {this.state.meals.map((val) =>
-                <div className="food-item" key={val.id}>
-                  <div className="food-item-title">{val.title}</div>
-                  <div className="food-item-details">
-                    <div className="food-item-date">{val.meal_type} - {val.meal_date}</div>
-                    <div>Calories: {val.calories}</div>
-                    <div>Protein: {val.protein}g</div>
-                    <div>Fat: {val.fat}g</div>
-                    <div>Carbs: {val.carbs}g</div>
+              <div className="graph-card">
+                <div className="title">Meals</div>
+                <div id="food-list">
+                  {this.state.meals.map((val) =>
+                  <div className="food-item" key={val.id}>
+                    <div className="food-item-title">{val.title}</div>
+                    <div className="food-item-details">
+                      <div className="food-item-date">{val.meal_type} - {val.meal_date}</div>
+                      <div>Calories: {val.calories}</div>
+                      <div>Protein: {val.protein}g</div>
+                      <div>Fat: {val.fat}g</div>
+                      <div>Carbs: {val.carbs}g</div>
+                    </div>
                   </div>
+                  )}
                 </div>
-                )}
               </div>
             </Col>
             <Col xs={8}>
