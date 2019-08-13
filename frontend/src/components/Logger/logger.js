@@ -27,15 +27,6 @@ class Logger extends Component {
   }
 
   submitMeal() {
-    // let newMeal = {
-    //   mealDate: this.state.mealDate,
-    //   food: this.state.food,
-    //   mealType: this.state.mealType,
-    //   calories: this.state.calories,
-    //   protein: this.state.protein,
-    //   fat: this.state.fat,
-    //   carbs: this.state.carbs
-    // }
     let newMeal = {
       title: this.state.food,
       meal_type: this.state.mealType,
@@ -47,6 +38,7 @@ class Logger extends Component {
     }
 
     this.props.logToMain(newMeal);
+
     this.setState({
       mealDate: "",
       food: "",
@@ -59,8 +51,9 @@ class Logger extends Component {
   }
 
   render() {
-      const left = 4;
-      const right = 8;
+    // setting column widths
+    const left = 4;
+    const right = 8;
 
     return (
       <div className="panel meal-logger">

@@ -11,37 +11,35 @@ class Main extends Component {
     super(props)
 
     this.state = {
-        meals: []
-      }
+      meals: []
+    }
+
+    this.loadData = this.loadData.bind(this);
   }
 
   componentDidMount() {
+    this.loadData();
+  }
+
+  loadData() {
     let currentComponent = this;
     axios.get("http://localhost:8000/api/meals/")
     .then(function(res) {
-      console.log(res.data);
       currentComponent.setState({
         meals: res.data
+      }, function() {
+        console.log(currentComponent.state);
       });
     })
     .catch(err => console.log(err));
   }
 
   logMeal = (data) => {
-    // let newMeal = {
-    //   title: data.food,
-    //   meal_type: data.mealType,
-    //   meal_date: data.mealDate,
-    //   calories: data.calories,
-    //   protein: data.protein,
-    //   fat: data.fat,
-    //   carbs: data.carbs
-    // }
-    // let allMeals = this.state.meals;
-    // allMeals.push(newMeal);
-
+    let currentComponent = this;
     axios.post("http://localhost:8000/api/meals/", data)
-    .then(res => console.log(res.data))
+    .then(function(res) {
+      currentComponent.loadData();
+    })
     .catch(err => console.log(err));
   }
 

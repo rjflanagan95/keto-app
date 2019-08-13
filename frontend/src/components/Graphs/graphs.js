@@ -23,6 +23,7 @@ class Graphs extends Component {
   }
 
   componentDidMount() {
+    console.log(this.state.meals);
     this.renderGraph();
     setInterval(this.renderGraph, 1000);
   }
@@ -93,11 +94,11 @@ class Graphs extends Component {
               </div>
               <div id="food-list" className="graph-card">
                 <div className="title">Today's Meals</div>
-                {this.state.meals.map((val, index) =>
-                <div className="food-item" key={index}>
-                  <div className="food-item-title">{val.food}</div>
+                {this.state.meals.map((val) =>
+                <div className="food-item" key={val.id}>
+                  <div className="food-item-title">{val.title}</div>
                   <div className="food-item-details">
-                    <div className="food-item-date">{val.mealType} - {val.mealDate}</div>
+                    <div className="food-item-date">{val.meal_type} - {val.meal_date}</div>
                     <div>Calories: {val.calories}</div>
                     <div>Protein: {val.protein}g</div>
                     <div>Fat: {val.fat}g</div>
