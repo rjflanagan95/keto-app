@@ -125,7 +125,7 @@ class App extends Component {
         </Row>
         <Main />
         <div className="footer">
-          <a href="https://github.com/rjflanagan95/keto-tracker">View the code on GitHub</a>
+          <a href="https://github.com/rjflanagan95/keto-app">View the code on GitHub</a>
         </div>
       </Container>
     );
