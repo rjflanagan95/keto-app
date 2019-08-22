@@ -3,18 +3,28 @@ from .models import Meal
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from rest_framework import viewsets, permissions, status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import MealSerializer, UserSerializer, UserSerializerWithToken
 
 class MealView(viewsets.ModelViewSet):
+    permission_classes = (permissions.AllowAny,)
+
     serializer_class = MealSerializer
     # should refer to all meals "owned" by a particular user if logged in
-    # queryset = Meal.objects.filter(appUser=self.request.user).order_by("meal_date")
+    # queryset = Meal.objects.filter(owner=self.request.user).order_by("meal_date")
     queryset = Meal.objects.all()
 
+    # def get_meals(self):
+    #     obj = get_object_or_404(self.get_queryset(), pk=self.kwargs["pk"])
+    #     self.check_object_permissions(self.request, obj)
+    #     return obj
+
+
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def current_user(request):
     """
     Determine the current user by their token, and return their data
@@ -22,7 +32,6 @@ def current_user(request):
     
     serializer = UserSerializer(request.user)
     return Response(serializer.data)
-
 
 class UserList(APIView):
     """
