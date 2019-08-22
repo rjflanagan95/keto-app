@@ -9,17 +9,25 @@ Python/Django, React.js, Chart.js
 
 ### What's Working
 -Users can sign up and log in
+
 -Users can log a meal and the graph will update to reflect changes
 
 ### What's Broken
 -Users can see meals logged by all users, not just their own meals
+
 -Meals logged from the UI (not from Django admin panel) have no "owner"
+
 -UI issues, mainly when the login/signup form is expanded
 
 ### What's Next
 -UI fixes
+
 -Associating logged meals with the current user
+
 -Filtering meals returned by the API so that only the current user's meals are returned
+
 -Moving away from default Django DB so the app can be hosted
+
 -Sorting meals in the log so users can see meals from today/last week/last month/etc
+
 -Graph to show macro intake over time
