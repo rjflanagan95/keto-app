@@ -1,3 +1,9 @@
 .nav-item {
     color: white;
 }
+
+.nav-item:hover {
+    text-decoration: none;
+    color: #F9DC5C;
+    font-weight: bold;
+}

@@ -1,0 +1,19 @@
+form {
+    color: white;
+}
+
+form label {
+    padding: 0 2px;
+}
+
+form input {
+    border: 2px solid #011936;
+    border-radius: 5px;
+}
+
+.signup-row {
+    display: flex;
+    align-items: center;
+
+    padding: 3px;
+}

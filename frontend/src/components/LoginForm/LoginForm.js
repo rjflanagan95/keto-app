@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Container, Row } from "react-bootstrap";
+
+import "./LoginForm.css";
 
 class LoginForm extends React.Component {
   state = {
@@ -19,24 +22,34 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={e => this.props.handle_login(e, this.state)}>
-        <h4>Log In</h4>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          name="username"
-          value={this.state.username}
-          onChange={this.handle_change}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={this.state.password}
-          onChange={this.handle_change}
-        />
-        <input type="submit" />
-      </form>
+      <Container>
+        <form onSubmit={e => this.props.handle_login(e, this.state)}>
+          <Row className="login-row">
+            <h4>Log In</h4>
+          </Row>
+          <Row className="login-row">
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              name="username"
+              value={this.state.username}
+              onChange={this.handle_change}
+            />
+          </Row>
+          <Row className="login-row">
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handle_change}
+            />
+          </Row>
+          <Row className="login-row">
+            <input className="login-submit" type="submit" />
+          </Row>
+        </form>
+      </Container>
     );
   }
 }

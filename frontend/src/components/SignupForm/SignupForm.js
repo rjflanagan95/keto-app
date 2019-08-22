@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Container, Row } from "react-bootstrap";
+
+import "./SignupForm.css";
 
 class SignupForm extends React.Component {
   state = {
@@ -19,24 +22,29 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={e => this.props.handle_signup(e, this.state)}>
-        <h4>Sign Up</h4>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          name="username"
-          value={this.state.username}
-          onChange={this.handle_change}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={this.state.password}
-          onChange={this.handle_change}
-        />
-        <input type="submit" />
-      </form>
+      <Container>
+        <form onSubmit={e => this.props.handle_signup(e, this.state)}>
+          <Row className="signup-row">
+            <h4>Sign Up</h4>
+          </Row>
+          <Row className="signup-row">
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              name="username"
+              value={this.state.username}
+              onChange={this.handle_change}
+            />
+          </Row>
+          <Row className="signup-row">
+            <label htmlFor="password">Password:</label>
+            <input type="password" name="password" value={this.state.password} onChange={this.handle_change} />
+          </Row>
+          <Row className="signup-row">
+            <input type="submit" />
+          </Row>
+        </form>
+      </Container>
     );
   }
 }

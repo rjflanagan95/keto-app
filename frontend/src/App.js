@@ -7,19 +7,6 @@ import Nav from "./components/Nav/Nav";
 import LoginForm from "./components/LoginForm/LoginForm";
 import SignupForm from "./components/SignupForm/SignupForm";
 
-// function App() {
-//   return (
-//     <div>
-//       <Main />
-//       <div className="footer">
-//         <a href="https://github.com/rjflanagan95/keto-tracker">View the code on GitHub</a>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -122,11 +109,17 @@ class App extends Component {
           </Col>
         </Row>
         <Row>
+          <Col xs={12}>
+            <Main user={this.state.username} />
+          </Col>
         </Row>
-        <Main />
-        <div className="footer">
-          <a href="https://github.com/rjflanagan95/keto-app">View the code on GitHub</a>
-        </div>
+        <Row id="footer-row">
+          {/* <Col xs={12}> */}
+            <div className="footer">
+              <a href="https://github.com/rjflanagan95/keto-app">View the code on GitHub</a>
+            </div>
+          {/* </Col> */}
+        </Row>
       </Container>
     );
   }

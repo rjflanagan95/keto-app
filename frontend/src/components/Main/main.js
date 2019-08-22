@@ -27,8 +27,6 @@ class Main extends Component {
     .then(function(res) {
       currentComponent.setState({
         meals: res.data
-      }, function() {
-        console.log(currentComponent.state);
       });
     })
     .catch(err => console.log(err));
@@ -36,7 +34,12 @@ class Main extends Component {
 
   logMeal = (data) => {
     let currentComponent = this;
+    // let initialData = data;
+    // let newData = {owner: this.props.user};
+    // initialData = {...initialData, ...newData};
+    // console.log(initialData);
     axios.post("http://localhost:8000/api/meals/", data)
+    // axios.post("http://localhost:8000/api/meals/", initialData)
     .then(function(res) {
       currentComponent.loadData();
     })

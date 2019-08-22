@@ -15,13 +15,13 @@ class MealView(viewsets.ModelViewSet):
     serializer_class = MealSerializer
     # should refer to all meals "owned" by a particular user if logged in
     # queryset = Meal.objects.filter(owner=self.request.user).order_by("meal_date")
-    queryset = Meal.objects.all()
+    # queryset = Meal.objects.all()
 
-    # def get_meals(self):
-    #     obj = get_object_or_404(self.get_queryset(), pk=self.kwargs["pk"])
-    #     self.check_object_permissions(self.request, obj)
-    #     return obj
-
+    def get_queryset(self):
+        if self.request.user.is_authenticated:
+            return Meal.objects.filter(owner__exact=self.request.user).order_by("meal_date")
+        # return Meal.objects.filter(owner__exact="testuser").order_by("meal_date")
+        return Meal.objects.all()
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -29,7 +29,7 @@ def current_user(request):
     """
     Determine the current user by their token, and return their data
     """
-    
+
     serializer = UserSerializer(request.user)
     return Response(serializer.data)
 
