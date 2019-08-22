@@ -1,12 +1,25 @@
-![Screenshot of Keto App](https://lh3.googleusercontent.com/pUvrBW7u0cYMij_oR81Wbo4RJvWewjUyZ34ftG2qJ2PV1eu_6Mwzua385WfksSaZj4vYZw53jTr84GSdtY_V2Hbak5hbOHPE6jF-bCSSDFZrLE6vuDGWg2E6tQKClsE5YSS2nOYrKfu-nty3aKAe0r7Uidel036exX5b6ibJ2yXdGyEzMGnynKJJ1uPeXn40XAmKEK8xUxGqT2vXYNleu7iSzEwTl38XyWnRaCtrbm7O5TRsjtvSdKRzxYs2LTdb9IMhTKv8gZiGvlYFRDUO30LJDnu4WljBwbA1KYVUP57y4dt_EgDgKr-1lfxKxy-kCL7iRnljKwHFkEf4mCctR4M_dn6yu220q1WlR39tdXyftb7vPiWq0lrVDI657n3Or5bUkwmLPoOXjz-J6givm6A6u2kJHZ7eLlLh-AIkFN3hDTWO6aGD2z-4j_5RTTtGvVf2ab2GVg14cTjAsi2hmrqCVwVprwQEi7Y5AufO54BEk_2Lhv_4wTfji5DBoUQmwoyDc8n3sOE_Zck6Lmg9I6NJkW-4heuYuE7s_kk5ESOLRYyat7xdH-IB33pO4DfRDWL7uRAtQ7LVjnOi4-R4oEFQdA4QsCq_IzNb6u1D1snH4K4FoQnu-Ib8EtGgDphLh79dA4NRsqySmXojIZr-xraS4s1TZX8=w2274-h1166-no)
+![Screenshot of Keto App](https://lh3.googleusercontent.com/WFOL2MTroUpAXVUUK9HzLF1Taf2_v-enJVqh_VAMmCxNO6V5_I6rYajq0q_MKDhMPG1ijJjM1wjIjis5yGPfcCSfxAu6lGR5tIUaB2ErP2Vc3tzb5PCxyt-439m_r-0X9rnMOo_VJk5FyLwqv6ve6BaQXuSOZjwJtFYL13Yp8dlgPk6gtVb5psmzEXiPAi7G9rIsMLzRZICbSzYim4nUQtOwFgAxVNhcj4m5_rYcWqsJeH9-F7xA4uUySgfO55Og_KVbNqMGYNKbMlDE5GzCaGKFLiuxY3fLFoCyiPaZZol8pSjnPN8qnHOPsJSonFTU7g65_U42wLnavm4Ju3dAd77TVXYHEjGvrj7zTIbYEusVBzWp6DlQZ4v6lGphaG--mRLtsr6ctsnKSd-RJSmgJ8ljH5QIntJ8d5AYge0cFAPE_nItKLoUonW5oYUyGPi8C4tEhzN3EG2Tm8yVLHljEo6TiWXtVpNkF8jCKmtYZK9uX6kK460SY0GMfybkVoTrsjueWpEslm_8yJz54YID_iLak1X3bR54aKbX9QgxtA0rG4iigf4FxhOgPuoPScDJQYtnw2z6krb5nRdb8NmbQi123QuphLTME1D4IE3aQLJjQreLu8G6KzIrt6_BEYb0wDvg3BzajfuiX-krpgUHeCmQRx5B5XE=w2274-h1166-no)
 ## Keto Tracker
 
 ### What is it?
 This is an app to help track your macronutrients while on a diet. Users can enter the details of their meal and see the total nutritional value of all of their meals that day.
 
 ### Tech
-Python/Django, React.js
+Python/Django, React.js, Chart.js
 
+### What's Working
+-Users can sign up and log in
+-Users can log a meal and the graph will update to reflect changes
 
-### Progress
-Currently this app only works in a development environment. Meals can be logged and the graph component will update to reflect any changes. The next big goal is to add either sessions support or user authentication, as currently there is no differentiation between users. After getting that working, I'll get the app hosted somewhere. Then I would like to work on a graph that shows caloric/macro intake over time so users can see how well they're adhering to their diet.
+### What's Broken
+-Users can see meals logged by all users, not just their own meals
+-Meals logged from the UI (not from Django admin panel) have no "owner"
+-UI issues, mainly when the login/signup form is expanded
+
+### What's Next
+-UI fixes
+-Associating logged meals with the current user
+-Filtering meals returned by the API so that only the current user's meals are returned
+-Moving away from default Django DB so the app can be hosted
+-Sorting meals in the log so users can see meals from today/last week/last month/etc
+-Graph to show macro intake over time

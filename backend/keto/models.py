@@ -10,7 +10,7 @@ class Meal(models.Model):
     protein = models.CharField(max_length=6)
     fat = models.CharField(max_length=6)
     carbs = models.CharField(max_length=6)
-    # appUser = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         # String for representing the Model object
